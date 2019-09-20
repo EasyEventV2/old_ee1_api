@@ -36,6 +36,13 @@ MongoClient.connect(url, { useNewUrlParser: true }, function (err, database) {
   console.log("Database OK");
 });
 
+// Test API
+app.get('/', (req, res) => {
+  res.json({
+    status: 'OK'
+  })
+})
+
 // Load all events without param "user"
 app.get('/event', (req, res) => {
   db.collection("events").find().toArray()
