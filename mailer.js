@@ -6,6 +6,7 @@ class _Mailer {
     this.PASS = process.env.EE_MAIL_PASS || "";
     this.transporter = nodemailer.createTransport({
       service: 'gmail',
+      secure: false,
       auth: {
         user: this.USER,
         pass: this.PASS
