@@ -12,7 +12,7 @@ const QRCode = require('qrcode')
 const jwt = require('jsonwebtoken')
 const fs = require('fs')
 
-const url = 'mongodb://admin123:admin123@ds131942.mlab.com:31942/easy-event';
+const url = 'mongodb://admin1:admin1@ds131942.mlab.com:31942/easy-event';
 const salt = 'namquocsonha';
 const home_url = 'http://127.0.0.1:3000'
 const jwt_key = 'shenevaknows'
@@ -255,7 +255,7 @@ app.put('/user/event', (req, res) => {
     fs.writeFile("./public/images/" + name, base64, {encoding: 'base64'}, function(err) {
       console.log('File created');
     });
-    event.dataURI = "https://api.namdaoduy.tk/easy-event/images/" + name;
+    event.dataURI = "https://api.easy-event-v1.namdaoduy.dev/easy-event/images/" + name;
   }
   db.collection("events").insertOne(event)
   .then(result => {
