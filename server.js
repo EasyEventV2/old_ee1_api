@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const port = 3005;
@@ -11,7 +12,6 @@ const Mailer = require('./mailer')
 const QRCode = require('qrcode')
 const jwt = require('jsonwebtoken')
 const fs = require('fs')
-require('dotenv').config()
 
 const DB_USER = process.env.DB_USER;
 const DB_PWD = process.env.DB_PWD;
@@ -19,7 +19,7 @@ const API_URL = process.env.API_URL;
 
 const url = 'mongodb://' + DB_USER + ':' + DB_PWD + '@ds131942.mlab.com:31942/easy-event';
 const salt = 'namquocsonha';
-const home_url = 'http://127.0.0.1:3000'
+const home_url = 'https://easy-event-v1.namdaoduy.dev'
 const jwt_key = 'shenevaknows'
 
 

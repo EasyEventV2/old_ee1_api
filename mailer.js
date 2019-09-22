@@ -8,6 +8,7 @@ class _Mailer {
       service: 'gmail',
       secure: false,
       auth: {
+	type: 'login',
         user: this.USER,
         pass: this.PASS
       }
@@ -26,7 +27,7 @@ class _Mailer {
     }
 
     this.transporter.sendMail(mailOptions, (error, info) => {
-      if (error) return console.log("-----x---> Sent error")
+      if (error) return console.log("-----x---> Sent error", error)
       console.log("---------> Sent!");
     })
   }
@@ -48,7 +49,7 @@ class _Mailer {
     }
 
     this.transporter.sendMail(mailOptions, (error, info) => {
-      if (error) return console.log("-----x---> Sent error")
+      if (error) return console.log("-----x---> Sent error", error)
       console.log("---------> Sent!");
     })
   }
