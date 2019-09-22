@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer')
 
 class _Mailer {
   constructor() {
-    this.USER = 'dev.namdaoduy@gmail.com';
+    this.USER = process.env.EE_MAIL_USER || "";
     this.PASS = process.env.EE_MAIL_PASS || "";
     this.transporter = nodemailer.createTransport({
       service: 'gmail',
