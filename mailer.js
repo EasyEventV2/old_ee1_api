@@ -2,11 +2,13 @@ const nodemailer = require('nodemailer')
 
 class _Mailer {
   constructor() {
-    this.USER = 'dev.namdaoduy@gmail.com';
+    this.USER = process.env.EE_MAIL_USER || "";
     this.PASS = process.env.EE_MAIL_PASS || "";
     this.transporter = nodemailer.createTransport({
       service: 'gmail',
+      secure: false,
       auth: {
+	type: 'login',
         user: this.USER,
         pass: this.PASS
       }
@@ -25,7 +27,7 @@ class _Mailer {
     }
 
     this.transporter.sendMail(mailOptions, (error, info) => {
-      if (error) return console.log("-----x---> Sent error")
+      if (error) return console.log("-----x---> Sent error", error)
       console.log("---------> Sent!");
     })
   }
@@ -47,7 +49,7 @@ class _Mailer {
     }
 
     this.transporter.sendMail(mailOptions, (error, info) => {
-      if (error) return console.log("-----x---> Sent error")
+      if (error) return console.log("-----x---> Sent error", error)
       console.log("---------> Sent!");
     })
   }
